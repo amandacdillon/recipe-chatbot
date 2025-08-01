@@ -1,0 +1,37 @@
+[project]
+name = "recipe-chatbot"
+version = "0.1.0"
+description = "A Recipe Chatbot built for an AI evaluations course"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    {name = "AI Evaluations Course"}
+]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "litellm",
+    "python-dotenv",
+    "httpx",
+    "rich",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "judgy",
+    "rank-bm25",
+    "tqdm",
+    "pydantic",
+    "typing-extensions",
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "python-fasthtml",
+    "monsterui",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []

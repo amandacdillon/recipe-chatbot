@@ -8,9 +8,7 @@ This repository contains a complete AI evaluations course built around a Recipe 
    ```bash
    git clone https://github.com/ai-evals-course/recipe-chatbot.git
    cd recipe-chatbot
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   pip install -r requirements.txt
+   uv sync
    ```
 
 2. **Configure Environment**
@@ -21,7 +19,7 @@ This repository contains a complete AI evaluations course built around a Recipe 
 
 3. **Run the Chatbot**
    ```bash
-   uvicorn backend.main:app --reload
+   uv run uvicorn backend.main:app --reload
    # Open http://127.0.0.1:8000
    ```
 
@@ -92,25 +90,25 @@ Each homework includes complete pipelines. For example:
 **HW3 Pipeline:**
 ```bash
 cd homeworks/hw3
-python scripts/generate_traces.py
-python scripts/label_data.py
-python scripts/develop_judge.py
-python scripts/evaluate_judge.py
+uv run python scripts/generate_traces.py
+uv run python scripts/label_data.py
+uv run python scripts/develop_judge.py
+uv run python scripts/evaluate_judge.py
 ```
 
 **HW4 Pipeline:**
 ```bash
 cd homeworks/hw4
-python scripts/process_recipes.py
-python scripts/generate_queries.py
-python scripts/evaluate_retrieval.py
-# Optional: python scripts/evaluate_retrieval_with_agent.py
+uv run python scripts/process_recipes.py
+uv run python scripts/generate_queries.py
+uv run python scripts/evaluate_retrieval.py
+# Optional: uv run python scripts/evaluate_retrieval_with_agent.py
 ```
 
 ## Additional Resources
 
-- **Annotation Interface**: Run `python annotation/annotation.py` for manual evaluation
-- **Bulk Testing**: Use `python scripts/bulk_test.py` to test multiple queries
+- **Annotation Interface**: Run `uv run python annotation/annotation.py` for manual evaluation
+- **Bulk Testing**: Use `uv run python scripts/bulk_test.py` to test multiple queries
 - **Trace Analysis**: All conversations saved as JSON for analysis
 
 ## Environment Variables
