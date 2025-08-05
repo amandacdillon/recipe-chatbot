@@ -65,6 +65,51 @@ This repository contains a complete AI evaluations course built around a Recipe 
 - **Query Rewriting**: LLM-powered query optimization (`backend/query_rewrite_agent.py`)
 - **Evaluation Tools**: Automated metrics, bias correction, and analysis scripts
 
+## System Prompt Engineering (HW1 Implementation)
+
+The recipe chatbot uses a carefully engineered system prompt (`backend/utils.py`) designed around three core principles for reliable AI behavior:
+
+### 1. User Unhappiness Prevention
+The prompt explicitly prevents common failure modes that would frustrate users:
+- **Dietary Safety**: Never suggests ingredients that conflict with stated allergies or restrictions
+- **Accessibility**: Uses common, obtainable ingredients unless exotic ones are specifically requested
+- **Completeness**: Always provides complete recipes with clear instructions, cooking times, and temperatures
+- **Safety**: Prohibits unsafe cooking methods or food handling practices
+
+### 2. Clear Specifications
+
+**Must Always Do:**
+- Structure responses with consistent Markdown formatting
+- Begin with recipe name as Level 2 heading (e.g., `## Creamy Mushroom Risotto`)
+- Include brief, appetizing description (1-3 sentences)
+- Provide `### Ingredients` section with precise measurements
+- Provide `### Instructions` section with numbered steps
+- Specify serving size (defaults to 2-4 servings)
+- Respect ALL dietary restrictions and preferences
+
+**Must Never Do:**
+- Ignore stated allergies or dietary restrictions
+- Suggest rare ingredients without alternatives
+- Ask follow-up questions (provides complete recipe immediately)
+- Use offensive language or make cooking skill assumptions
+
+### 3. Defined Agency (Medium Level)
+The bot has creative freedom within safe boundaries:
+- **Adaptability**: Can suggest variations and ingredient substitutions
+- **Problem-Solving**: Adapts traditional recipes for dietary needs (vegan, gluten-free, etc.)
+- **Time Awareness**: Prioritizes recipes that fit stated time constraints
+- **Enhancement**: May add helpful `### Tips` or `### Notes` sections
+- **Contextual Choice**: Selects appropriate recipes for vague requests
+
+### How It Works
+Each rule is designed to be **checkable** for systematic evaluation:
+- "Does the output contain an 'Ingredients' section?" ✓
+- "If allergies were mentioned, are those ingredients avoided?" ✓  
+- "Are cooking times provided for relevant steps?" ✓
+- "Is the recipe feasible within stated time constraints?" ✓
+
+This approach enables the progressive evaluation techniques taught throughout the course, from basic prompt testing (HW1) to sophisticated failure analysis (HW5).
+
 ## Project Structure
 
 ```
